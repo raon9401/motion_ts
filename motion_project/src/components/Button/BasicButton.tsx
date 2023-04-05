@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { categoryState } from "../../store/categorySlice";
 import { inputModalState } from "../../store/modalSlice";
 
 type ButtonText = {
@@ -6,11 +7,11 @@ type ButtonText = {
 };
 
 export const BasicButton = ({ children }: ButtonText) => {
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
 
   const handleModal = () => {
-    console.log(children);
-    dispach(inputModalState(true));
+    dispatch(categoryState(children));
+    dispatch(inputModalState(true));
   };
   return (
     <button type="button" className="basic_button" onClick={handleModal}>
