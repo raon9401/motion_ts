@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { MainContents } from "./components/MainContents/MainContents";
 import { InputModal } from "./components/Modal/InputModal";
-import { Nav } from "./components/Nav/Nav";
+import { Header } from "./components/Header/Header";
 import { RootState } from "./store";
 
 export const App = () => {
@@ -11,7 +11,7 @@ export const App = () => {
   });
   return (
     <main className="base_layout relative">
-      <Nav />
+      <Header />
       <section className="w-full flex justify-center">
         <MainContents />
         {modalOpen && <InputModal />}
