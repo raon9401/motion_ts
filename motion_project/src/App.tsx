@@ -5,10 +5,8 @@ import { Header } from "./components/Header/Header";
 import { RootState } from "./store/_index";
 
 export const App = () => {
-  const modalOpen = useSelector((state: RootState) => {
-    console.log(state);
-    return state.modal.value;
-  });
+  const modalOpen = useSelector((state: RootState) => state.modal.value);
+
   return (
     <main className="base_layout relative">
       <Header />

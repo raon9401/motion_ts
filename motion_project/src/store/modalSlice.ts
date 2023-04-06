@@ -6,7 +6,7 @@ type InitialState = {
 };
 
 const initialState: InitialState = {
-  id: 1,
+  id: 2,
   value: false,
 };
 

@@ -1,21 +1,23 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { URL_REG } from "../../constants/Reg";
 import { handleModal } from "../../hooks/handleModal";
+import { craeteContents } from "../../store/contentsSlice";
 import { RootState } from "../../store/_index";
-
-type ContentsType = {
-  [key: string]: string;
-};
+import { Contents, InputContentsType } from "../../types/contentsType";
 
 export const InputModal = () => {
-  const [formData, setFormData] = useState<ContentsType>({});
+  const [formData, setFormData] = useState<InputContentsType>({});
+  const dispach = useDispatch();
 
   const { modalClose } = handleModal();
 
-  const categoryState = useSelector((state: RootState) => {
-    return state.category.value;
-  });
+  const categoryState = useSelector((state: RootState) => state.category.value);
+
+  const contentsPush = ({ id, category, contents, title }: Contents) => {
+    const contentsData = { id, category, contents, title };
+    dispach(craeteContents(contentsData));
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -25,9 +27,9 @@ export const InputModal = () => {
     }));
   };
 
-  const handleSubmitContents = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const handleSubmitContents = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const date = Date.now();
     if (formData.title) {
       if (categoryState === "Image" || categoryState === "Video") {
         if (!formData.url) {
@@ -37,6 +39,13 @@ export const InputModal = () => {
         } else {
           // input 모두 적을 경우
           console.log(formData, categoryState);
+          const data: Contents = {
+            id: date,
+            category: categoryState,
+            title: formData.title,
+            contents: formData.url,
+          };
+          contentsPush(data);
           modalClose();
         }
       }
@@ -46,6 +55,13 @@ export const InputModal = () => {
         } else {
           // input 모두 적을 경우
           console.log(formData, categoryState);
+          const data: Contents = {
+            id: date,
+            category: categoryState,
+            title: formData.title,
+            contents: formData.text,
+          };
+          contentsPush(data);
           modalClose();
         }
       }
