@@ -36,4 +36,8 @@
   .input {
     @apply h-6 rounded-md p-2 outline-none;
   }
+
+  .thumnail_layout {
+    @apply border-2 h-fit min-w-[320px] px-2 rounded-md mr-5 flex justify-center;
+  }
 }
