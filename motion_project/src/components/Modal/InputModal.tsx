@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { URL_REG } from "../../constants/Reg";
 import { handleModal } from "../../hooks/handleModal";
-import { craeteContents } from "../../store/contentsSlice";
+import { createContents } from "../../store/contentsSlice";
 import { RootState } from "../../store/_index";
 import { Contents, InputContentsType } from "../../types/contentsType";
 
@@ -16,7 +16,7 @@ export const InputModal = () => {
 
   const contentsPush = ({ id, category, contents, title }: Contents) => {
     const contentsData = { id, category, contents, title };
-    dispach(craeteContents(contentsData));
+    dispach(createContents(contentsData));
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
