@@ -1,4 +1,4 @@
-export interface Contents {
+export interface ContentsType {
   id: number;
   category: string;
   title: string;

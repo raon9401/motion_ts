@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Contents } from "../types/contentsType";
+import { ContentsType } from "../types/contentsType";
 
 type InitialState = {
   id: number;
-  value: Contents[];
+  value: ContentsType[];
   length: number;
 };
 

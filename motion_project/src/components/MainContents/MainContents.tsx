@@ -10,7 +10,7 @@ export const MainContents = () => {
     <section className="main_layout ">
       <CreateBtnNav />
       <article className="overflow-y-scroll">
-        <div className="flex flex-col max-h-[80vh]  items-center space-y-8 pt-5 py-4 ">
+        <div className="flex flex-col max-h-[80vh] items-center space-y-8 pt-5 py-4 ">
           {ContentsValue.map((item, index) => (
             <ContentsItem
               key={item.id}

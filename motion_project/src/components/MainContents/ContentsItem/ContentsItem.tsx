@@ -2,10 +2,10 @@ import ReactPlayer from "react-player";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { Contents } from "../../../types/contentsType";
+import { ContentsType } from "../../../types/contentsType";
 import { deleteContents } from "../../../store/contentsSlice";
 
-interface ContentsList extends Contents {
+interface ContentsList extends ContentsType {
   index: number;
 }
 
