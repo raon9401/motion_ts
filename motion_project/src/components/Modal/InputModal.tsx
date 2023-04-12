@@ -1,81 +1,20 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { URL_REG } from "../../constants/Reg";
+import { useSelector } from "react-redux";
 import { handleModal } from "../../hooks/handleModal";
-import { createContents } from "../../store/contentsSlice";
 import { RootState } from "../../store/_index";
-import { Contents, InputContentsType } from "../../types/contentsType";
+import { handleSubmitContents } from "../../hooks/handleContents";
 
 export const InputModal = () => {
-  const [formData, setFormData] = useState<InputContentsType>({});
-  const dispach = useDispatch();
-
   const { modalClose } = handleModal();
 
   const categoryState = useSelector((state: RootState) => state.category.value);
-
-  const contentsPush = ({ id, category, contents, title }: Contents) => {
-    const contentsData = { id, category, contents, title };
-    dispach(createContents(contentsData));
-  };
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmitContents = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const date = Date.now();
-    if (formData.title) {
-      if (categoryState === "Image" || categoryState === "Video") {
-        if (!formData.url) {
-          alert("URL을 입력해주세요!");
-        } else if (!URL_REG.test(formData.url)) {
-          alert("올바른 URL을 입력해주세요!");
-        } else {
-          // input 모두 적을 경우
-          console.log(formData, categoryState);
-          const data: Contents = {
-            id: date,
-            category: categoryState,
-            title: formData.title,
-            contents: formData.url,
-          };
-          contentsPush(data);
-          modalClose();
-        }
-      }
-      if (categoryState === "Note" || categoryState === "TODO") {
-        if (!formData.text) {
-          alert("내용을 입력해주세요!");
-        } else {
-          // input 모두 적을 경우
-          console.log(formData, categoryState);
-          const data: Contents = {
-            id: date,
-            category: categoryState,
-            title: formData.title,
-            contents: formData.text,
-          };
-          contentsPush(data);
-          modalClose();
-        }
-      }
-    }
-    if (!formData.title) {
-      alert("타이틀을 입력해주세요!");
-    }
-  };
+  const { handleSubmitContentsTest, handleInputChange } =
+    handleSubmitContents();
 
   return (
     <section className="absolute flex justify-center ">
       {/* input modal */}
       <article className="mt-40 w-96 h-fit absolute z-10 p-2 rounded-xl bg-orange-300 shadow-xl flex flex-col items-center">
-        <form onSubmit={handleSubmitContents}>
+        <form onSubmit={handleSubmitContentsTest}>
           <p className="text-white text-center h-fit py-3 font-semibold text-xl">
             {categoryState}
           </p>
