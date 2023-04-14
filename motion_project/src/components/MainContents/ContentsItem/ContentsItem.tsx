@@ -44,11 +44,11 @@ export const ContentsItem = ({
   // 드래그 종료 이벤트.
   const handleDragEnd = (e: React.DragEvent<HTMLElement>) => {
     e.dataTransfer.dropEffect = "move";
+    setDragIndex(null);
   };
   // 드래그오버가 됐을 경우 이벤트를 종료시켜서 Drop이 동작할 수 있게 해준다.
   const handleDragOver = (e: React.DragEvent<HTMLElement>) => {
     e.preventDefault();
-    console.log(index);
   };
 
   // 드래그한 컨텐츠를 놓는 곳의 인덱스를 받아옴.
@@ -59,7 +59,9 @@ export const ContentsItem = ({
     dispach(contentsSwap({ dragIndex, targetIndex }));
   };
 
-  const handleDragColor = () => {};
+  const handleDragColor = () => {
+    console.log(index);
+  };
 
   return (
     <section

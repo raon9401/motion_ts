@@ -2,7 +2,7 @@ export const Header = () => {
   return (
     <nav className="w-full h-12 px-5 flex justify-between items-center shadow-lg absolute bg-white">
       <section className="w-fit">
-        <span className="text-xl font-semibold italic flex items-center">
+        <span className="font-dancing text-xl font-semibold flex items-center">
           Motion Project
         </span>
       </section>

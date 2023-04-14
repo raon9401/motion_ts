@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      // font 설정
+      fontFamily: {
+        dancing: ["Dancing Script", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
