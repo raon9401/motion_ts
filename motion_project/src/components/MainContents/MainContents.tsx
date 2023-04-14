@@ -10,7 +10,9 @@ export const MainContents = () => {
   return (
     <section className="main_layout ">
       <CreateBtnNav />
-      <article className={ContentsValue.length !== 0 && "overflow-y-scroll"}>
+      <article
+        className={ContentsValue.length !== 0 ? "overflow-y-scroll" : ""}
+      >
         <div className="flex flex-col max-h-[80vh] items-center space-y-8 pt-5 py-4">
           {ContentsValue.map((item, index) => (
             <ContentsItem
