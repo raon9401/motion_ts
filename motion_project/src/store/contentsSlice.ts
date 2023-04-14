@@ -23,6 +23,13 @@ const contents = createSlice({
     contentsLength: (state) => {
       state.length = state.value.length;
     },
+    contentsSwap: (state, action) => {
+      const { dragIndex, targetIndex } = action.payload;
+
+      const temp = state.value[action.payload.dragIndex];
+      state.value[dragIndex] = state.value[targetIndex];
+      state.value[targetIndex] = temp;
+    },
     deleteContents: (state, action) => {
       /* 
         삭제 시 로직
@@ -35,5 +42,5 @@ const contents = createSlice({
 });
 
 export default contents;
-export const { createContents, contentsLength, deleteContents } =
+export const { createContents, contentsLength, deleteContents, contentsSwap } =
   contents.actions;
