@@ -1,3 +1,6 @@
+import { BsGithub } from "react-icons/bs";
+import { handleWebPageLink } from "../../hooks/handleLink";
+
 export const Header = () => {
   return (
     <nav className="w-full h-12 px-5 flex justify-between items-center shadow-lg absolute bg-white">
@@ -8,7 +11,10 @@ export const Header = () => {
       </section>
       <section className="w-fit ">
         {/* 아이콘으로 대체 */}
-        <span className="flex items-center font-semibold">깃헙</span>
+        <BsGithub
+          className="w-8 hover:fill-orange-600 hover:cursor-pointer"
+          onClick={() => handleWebPageLink("https://github.com/raon9401")}
+        />
       </section>
     </nav>
   );
