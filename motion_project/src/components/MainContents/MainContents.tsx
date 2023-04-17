@@ -7,6 +7,8 @@ import { ContentsItem } from "./ContentsItem/ContentsItem";
 export const MainContents = () => {
   const ContentsValue = useSelector((state: RootState) => state.contents.value);
   const [dragIndex, setDragIndex] = useState<number | null>(null);
+  const [targetIndex, setTargetIndex] = useState<number | null>(null);
+
   return (
     <section className="main_layout ">
       <CreateBtnNav />
@@ -24,6 +26,8 @@ export const MainContents = () => {
               contents={item.contents}
               dragIndex={dragIndex}
               setDragIndex={setDragIndex}
+              targetIndex={targetIndex}
+              setTargetIndex={setTargetIndex}
             />
           ))}
         </div>
