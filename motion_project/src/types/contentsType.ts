@@ -8,3 +8,11 @@ export interface ContentsType {
 export interface InputContentsType {
   [key: string]: string;
 }
+
+export interface DragPropsType {
+  index: number;
+  dragIndex: number;
+  targetIndex: number;
+  setDragIndex: React.Dispatch<React.SetStateAction<number>>;
+  setTargetIndex: React.Dispatch<React.SetStateAction<number>>;
+}
