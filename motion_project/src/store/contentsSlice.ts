@@ -24,11 +24,10 @@ const contents = createSlice({
       state.length = state.value.length;
     },
     contentsSwap: (state, action) => {
-      const { dragIndex, targetIndex } = action.payload;
-
-      const temp = state.value[action.payload.dragIndex];
-      state.value[dragIndex] = state.value[targetIndex];
-      state.value[targetIndex] = temp;
+      const { dragIndex, changeIndex } = action.payload;
+      const temp = state.value[dragIndex];
+      state.value[dragIndex] = state.value[changeIndex];
+      state.value[changeIndex] = temp;
     },
     deleteContents: (state, action) => {
       /* 
