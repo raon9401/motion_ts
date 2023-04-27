@@ -26,3 +26,17 @@
 |<img src="https://user-images.githubusercontent.com/26896971/232591231-f9462819-f8ca-483d-a07c-d78f381ff62b.gif" width=250>|<img src="https://user-images.githubusercontent.com/26896971/232591282-b445d61e-6959-4e68-99a1-66bcf603e7e1.gif" width=250>|
 |드래그 앤 드롭|
 |<img src="https://user-images.githubusercontent.com/26896971/232591456-ad06946a-510e-4696-b160-30a9117aec9c.gif" width=250>|
+
+
+
+## Git commit message
+|태그|설명|
+|:-:|:-:|
+|feat|새로운 기능 추가|
+|fix|버그 수정|
+|docs|문서|
+|design|컴포넌트 디자인|
+|style|(formatting, missing semi colons, …)|
+|refactor|코드 리팩토링|
+|test|테스트 관련|
+|chore|기타 수정|
