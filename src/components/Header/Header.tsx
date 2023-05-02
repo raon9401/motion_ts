@@ -1,5 +1,5 @@
 import { BsGithub } from "react-icons/bs";
-import { handleWebPageLink } from "../../hooks/handleLink";
+import { handleWebPageLink } from "../../utils/handleLink";
 
 export const Header = () => {
   return (

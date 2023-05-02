@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { contentsSwap } from "../store/contentsSlice";
 import { DragPropsType } from "../types/contentsType";
 
-export const handleDrag = ({
+export const useDrag = ({
   index,
   dragIndex,
   setDragIndex,

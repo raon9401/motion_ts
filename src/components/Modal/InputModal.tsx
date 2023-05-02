@@ -1,20 +1,19 @@
 import { useSelector } from "react-redux";
-import { handleModal } from "../../hooks/handleModal";
+import { useHandleModal } from "../../hooks/useHandleModal";
 import { RootState } from "../../store/_index";
-import { handleSubmitContents } from "../../hooks/handleContents";
+import { useSubmitContents } from "../../hooks/useSubmitContents";
 
 export const InputModal = () => {
-  const { modalClose } = handleModal();
+  const { modalClose } = useHandleModal();
 
   const categoryState = useSelector((state: RootState) => state.category.value);
-  const { handleSubmitContentsTest, handleInputChange } =
-    handleSubmitContents();
+  const { handleSubmitContents, handleInputChange } = useSubmitContents();
 
   return (
     <section className="absolute flex justify-center ">
       {/* input modal */}
       <article className="mt-40 w-96 h-fit absolute z-10 p-2 rounded-xl bg-orange-300 shadow-xl flex flex-col items-center">
-        <form onSubmit={handleSubmitContentsTest}>
+        <form onSubmit={handleSubmitContents}>
           <p className="text-white text-center h-fit py-3 font-semibold text-xl">
             {categoryState}
           </p>

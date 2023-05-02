@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { inputModalState } from "../store/modalSlice";
 
-export const handleModal = () => {
+export const useHandleModal = () => {
   const dispach = useDispatch();
 
   const modalOpen = () => {

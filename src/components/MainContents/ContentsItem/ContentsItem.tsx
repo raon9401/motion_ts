@@ -3,8 +3,8 @@ import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { ContentsType, DragPropsType } from "../../../types/contentsType";
-import { contentsSwap, deleteContents } from "../../../store/contentsSlice";
-import { handleDrag } from "../../../hooks/handleDrag";
+import { deleteContents } from "../../../store/contentsSlice";
+import { useDrag } from "../../../hooks/useDrag";
 
 interface ContentsList extends ContentsType, DragPropsType {}
 
@@ -38,7 +38,7 @@ export const ContentsItem = ({
     handleDragOver,
     handleDrop,
     handleDragEnter,
-  } = handleDrag({
+  } = useDrag({
     index,
     dragIndex,
     setDragIndex,

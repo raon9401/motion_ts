@@ -2,16 +2,16 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ContentsType, InputContentsType } from "../types/contentsType";
 import { createContents } from "../store/contentsSlice";
-import { handleModal } from "./handleModal";
+import { useHandleModal } from "./useHandleModal";
 import { URL_REG } from "../constants/Reg";
 import { RootState } from "../store/_index";
 
-export const handleSubmitContents = () => {
+export const useSubmitContents = () => {
   const [formData, setFormData] = useState<InputContentsType>({});
   const categoryState = useSelector((state: RootState) => state.category.value);
 
   const dispach = useDispatch();
-  const { modalClose } = handleModal();
+  const { modalClose } = useHandleModal();
 
   const contentsPush = ({ id, category, contents, title }: ContentsType) => {
     const contentsData = { id, category, contents, title };
@@ -26,9 +26,7 @@ export const handleSubmitContents = () => {
     }));
   };
 
-  const handleSubmitContentsTest = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSubmitContents = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const date = Date.now();
     if (formData.title) {
@@ -72,5 +70,5 @@ export const handleSubmitContents = () => {
     }
   };
 
-  return { handleSubmitContentsTest, handleInputChange };
+  return { handleSubmitContents, handleInputChange };
 };
